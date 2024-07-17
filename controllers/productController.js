@@ -40,7 +40,7 @@ export const fetchProducts = async (req, res) => {
   try {
     const result = await query.exec();
     console.log(result);
-    const totalCount = await query2.count().exec();
+    const totalCount = await query2.countDocuments();
     console.log(toalCount);
     res.set("X-Total-Count", totalCount);
     res.status(200).json(result);
