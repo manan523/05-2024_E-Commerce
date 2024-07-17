@@ -3,7 +3,6 @@ import productModel from "../model/productModel.js";
 //req.query gives object containing the string parameters  (after ? mark)
 export const fetchBrands = async (req, res) => {
   let query = productModel.find({});
-  query = query.sort({ price: "asc" });
   query = query.distinct('brand');
 
   try {

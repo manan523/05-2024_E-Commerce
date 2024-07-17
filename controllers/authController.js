@@ -31,7 +31,7 @@ export const createUser = async (req, res) => {
     );
   } catch (err) {
     console.log(err);
-    res.status(400).json(err, {message: "Error Creating User"});
+    res.status(400).json(err, { message: "Error Creating User" });
   }
 };
 
@@ -70,10 +70,18 @@ export const loginUser = async (req, res) => {
 };
 
 export const checkAuth = async (req, res) => {
-  if(req.user){
+  if (req.user) {
     res.json(req.cookies["jwt"]);
-  }
-  else{
+  } else {
     res.status(401);
   }
+};
+
+export const logoutUser = async (req, res) => {
+  res
+    .cookie("jwt", null, {
+      maxAge: 0,
+      httpOnly: true,
+    })
+    .sendStatus(200);
 };

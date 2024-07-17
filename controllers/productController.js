@@ -17,12 +17,11 @@ export const fetchProducts = async (req, res) => {
   const {role} = req.user;
   let query = (role=="admin" ? productModel.find({}) : productModel.find({deleted:{$ne:true}}));
   let sortCriteria = { indexId : "asc" };
-
   if (req.query.category) {
-    query = query.find({ category: req.query.category });
+    query = query.find({ category: {$in:req.query.category.split(',')} });
   }
   if (req.query.brand) {
-    query = query.find({ brand: req.query.brand });
+    query = query.find({ brand: {$in:req.query.brand.split(',')} });
   }
   if (req.query._sort && req.query._order) {
     sortCriteria = { [req.query._sort]: req.query._order};
