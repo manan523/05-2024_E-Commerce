@@ -41,6 +41,7 @@ export const fetchProducts = async (req, res) => {
     const result = await query.exec();
     console.log(result);
     const totalCount = await query2.count().exec();
+    console.log(toalCount);
     res.set("X-Total-Count", totalCount);
     res.status(200).json(result);
   } catch (err) {
