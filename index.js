@@ -139,7 +139,7 @@ app.get("/api", (req, res) => {
 //PAYMENTS
 const stripe = Stripe(process.env.SSK);
 
-app.post("/create-payment-intent", async (req, res) => {
+app.post("/api/create-payment-intent", async (req, res) => {
   const { totalAmount } = req.body;
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
