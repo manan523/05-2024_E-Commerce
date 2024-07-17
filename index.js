@@ -9,7 +9,6 @@ import authRouter from "./routes/authRoutes.js";
 import cartRouter from "./routes/cartRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import passport from "passport";
-import { data } from "./data.js";
 import userModel from "./model/userModel.js";
 import { Strategy as JwtStrategy } from "passport-jwt";
 import cookieParser from "cookie-parser";
