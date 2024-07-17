@@ -3,28 +3,12 @@
     {
       "src": "index.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "build/**",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-        "src": "/api/auth/login",
-        "dest" : "index.js"
+        "src": "/(*)",
+        "dest" : "/"
     },
-    {
-        "src": "/api/(.*)",
-        "dest" : "index.js"
-    },
-    {
-        "src": "/",
-        "dest" : "build/index.html"
-    },
-    {
-        "src": "/(.+)",
-        "dest" : "build/$1"
-    }
   ]
 }
